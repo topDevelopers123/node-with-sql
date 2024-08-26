@@ -6,7 +6,7 @@ const app = express()
 
 
 async function databaseSync() {
-    await sequelize.sync({ alter: true });
+    await sequelize.sync({ force: false });
 }
 databaseSync()
 
