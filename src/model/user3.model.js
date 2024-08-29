@@ -9,13 +9,18 @@ const User3Model = sequelize.define(
       primaryKey: true,
       autoIncrement: true,
     },
-    username: { 
-        type:DataTypes.STRING,
-        allowNull:false
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true, // The field is required, meaning it cannot be an empty string
+      },
     },
   },
   {
     freezeTableName: true,
+    paranoid: true,
+    deletedAt: "destroyTime",
   }
 );
 

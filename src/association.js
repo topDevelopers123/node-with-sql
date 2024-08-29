@@ -1,3 +1,4 @@
+const { PostModel } = require("./model/post.model");
 const { profileModel } = require("./model/profile.model");
 const { User3Model } = require("./model/user3.model");
 
@@ -9,5 +10,17 @@ User3Model.hasOne(profileModel, {
 
 profileModel.belongsTo(User3Model, {
   foreignKey: "userId",
-  as:"user info"
+  as: "userinfo",
+});
+
+// one to many | A user can have many post
+
+User3Model.hasMany(PostModel, {
+  foreignKey: "userId",
+  as: "postData",
+});
+
+PostModel.belongsTo(User3Model, {
+  foreignKey: "userId",
+  as: "user",
 });

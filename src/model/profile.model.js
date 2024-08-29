@@ -11,8 +11,10 @@ const profileModel = sequelize.define(
     },
     Bio: {
       type: DataTypes.STRING,
+      
     },
     userId: {
+      //yeh userId help krega at the time of forgine key
       type: DataTypes.INTEGER,
       allowNull: false,
       unique: true,
